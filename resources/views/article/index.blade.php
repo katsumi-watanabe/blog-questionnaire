@@ -13,6 +13,7 @@
         <div class="col-md-8 offset-md-2">
             <h2 class="fs-1 mb-5 text-center fw-bold">投稿記事</h2>
             <form method="post">
+                @csrf
                 <p>記事フォーム</p>
                 <hr>
                 <div class="mb-3">
