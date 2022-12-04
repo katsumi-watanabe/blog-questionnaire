@@ -11,20 +11,19 @@
 <div class="main container-fluid">
     <div class="row bg-light text-dark py-5">
         <div class="col-md-8 offset-md-2">
-            <h2 class="fs-1 mb-5 text-center fw-bold">投稿入力フォーム</h2>
-            <form method="post" action="{{ route('article.create') }}">
-                @csrf
+            <h2 class="fs-1 mb-5 text-center fw-bold">投稿記事</h2>
+            <form method="post">
                 <p>記事フォーム</p>
                 <hr>
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="article_title" placeholder="記事タイトル" value="" required>
+                    <input type="text" class="form-control" name="article" placeholder="記事タイトル" value="">
                 </div>
                 <div class="mb-4">
-                    <textarea class="form-control" name="article_detail" rows="5" placeholder="記事内容" required></textarea>
+                    <textarea class="form-control" name="お問い合わせ内容" rows="5" placeholder="記事内容"></textarea>
                 </div>
                 @for ($i = 1; $i < 6; $i++)
                 <div class="questionnair-input{{$i}}" @if($i >= 2) style="display: none;"  @endif>
-                    <p>アンケート内容記述フォーム{{$i}}</p>
+                    <p>アンケートフォーム{{$i}}</p>
                     <hr>
                     <div class="mb-3">
                         <input style="margin-right: 5px;" type="radio" id="radio{{$i}}" name="q{{$i}}" value="radio"><label style="margin-right: 20px;" for="radio{{$i}}">ラジオボタン</label>
@@ -32,10 +31,10 @@
                         <input style="margin-right: 5px;" type="radio" id="text{{$i}}" name="q{{$i}}" value="text"><label for="text{{$i}}">テキストフォーム</label>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="q_title_{{$i}}" placeholder="アンケートタイトル" value="">
+                        <input type="text" class="form-control" name="article" placeholder="アンケートタイトル" value="">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="q_select_{{$i}}" placeholder="アンケート選択肢" value="">
+                        <input type="text" class="form-control" name="article" placeholder="アンケート選択肢" value="">
                     </div>
                     @if ($i < 5)
                     <div class="text-left pb-2 mb-3 col-md-12">
@@ -53,12 +52,4 @@
 </div>
 </div>
 </body>
-<script>
-for (let i = 1; i < 5; i++) {
-    document.querySelector('.add-button' + i).onclick = function() {
-    var questionnair_from = document.getElementsByClassName('questionnair-input' + (i + 1));
-        questionnair_from[0].style.display = "block";
-    }
-};
-</script>
 </html>
